@@ -1,39 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>mango</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mango</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <canvas id="agua"></canvas>
 
-  <nav class="menu">
-    <h1>mango</h1>
-    <a href="#trabalhos">trabalhos</a>
-    <a href="#about">about me</a>
-  </nav>
+    <!-- BACKGROUND -->
+    <canvas id="agua"></canvas>
 
-  <main class="conteudo">
-    <section id="trabalhos">
-      <h2>trabalhos</h2>
-      <article class="trabalho">
-        <div class="thumb"></div>
-        <h3>projeto</h3>
-        <p>2026</p>
-      </article>
-      <article class="trabalho">
-        <div class="thumb"></div>
-        <h3>projeto</h3>
-        <p>2026</p>
-      </article>
-    </section>
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <a href="#home">home</a>
+        <a href="#works">works</a>
+        <a href="#about-me">about me</a>
+        <a href="#contact">contact</a>
+    </nav>
+    <main class="content">
+        <section id="home">
+            <h2>home</h2>
+            <p>welcome to my website</p>
+        </section>
 
-    <section id="about">
-      <h2>about me</h2>
-      <p>lorem ipsum lorem ipsum</p>
-    </section>
-  </main>
+        <section id="works">
+            <h2>works</h2>
+            <div class="project-list">
+                <article class="project">
+                    <div class="project-image">
+                      <img src="placeholder.png" alt="Project 1">
+                    </div>
+
+                    <div class="project-info">
+                        <h3>projeto 1</h3>
+                        <p>descrição do projeto 1</p>
+                        <span>2026</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="about-me">
+            <h2>about me</h2>
+            <p>here is some information about me</p>
+        </section>
+
+        <section id="contact">
+            <h2>contact</h2>
+            <p>feel free to reach out to me</p>
+        </section>
+
+        <dialog id="project-dialog">
+        </dialog>
+    </main>
+
+   
+
 </body>
 </html>
