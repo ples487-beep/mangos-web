@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -17,12 +17,12 @@
      <nav class="sidebar">
     <h1>mango's web</h1>
 
-    <a href="#home">home</a>
-    <a href="#works">works</a>
-    <a href="#about-me">about me</a>
-    <a href="#contact">contact</a>
+    <a href="#home" data-section="home">home</a>
+    <a href="#works" data-section="works">works</a>
+    <a href="#about-me" data-section="about-me">about me</a>
+    <a href="#contact" data-section="contact">contact</a>
     </nav>
-    
+
     <!-- content-->
     <main class="content">
         <section id="home">
@@ -30,7 +30,7 @@
             <p>welcome to my website</p>
         </section>
 
-        <section id="works">
+        <section id="works" class="hidden">
             <h2>works</h2>
             <div class="project-list">
                 <article class="project">
@@ -51,8 +51,8 @@
                     </div>
 
                     <div class="project-info">
-                        <h3>projeto 1</h3>
-                        <p>descrição do projeto 1</p>
+                        <h3>projeto 2</h3>
+                        <p>descrição do projeto 2</p>
                         <span>2026</span>
                     </div>
                 </article>
@@ -71,21 +71,31 @@
             </div>
         </section>
 
-        <section id="about-me">
+        <section id="about-me" class="hidden">
             <h2>about me</h2>
-            <p>here is some information about me</p>
+            <p>im mango, a multidisciplinary designer
+                 with a bachelor's degree in Design and Multimedia from the University of Coimbra, 
+                 i like doing illustration, animation and creative coding. </p>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="hidden">
             <h2>contact</h2>
-            <p>feel free to reach out to me</p>
+            <p>you can find me on github and on my social media profiles.</p>
+            <form class="contact-form" action="mailto:placeholder@mail.com" method="post" enctype="text/plain">
+                <label for="nome">name</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="mensagem">message</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+                <button type="submit">send</button>
+            </form> 
         </section>
 
         <dialog id="project-dialog">
         </dialog>
     </main>
 
-   
-
+    <script src="script.js"></script>
 </body>
 </html>
