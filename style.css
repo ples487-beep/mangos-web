@@ -1,7 +1,5 @@
 
-/* =================================
-   FONTES
-================================= */
+/* fonts */
 
 @font-face {
     font-family: 'Trade Gothic';
@@ -10,10 +8,7 @@
     font-style: normal;
 }
 
-
-/* =================================
-   BASE
-================================= */
+/*base*/
 
 * {
     box-sizing: border-box;
@@ -21,7 +16,6 @@
 
 body {
     margin: 0;
-    overflow: hidden;
 
     background-color: #0066ff;
 
@@ -73,16 +67,15 @@ p {
 }
 
 
-
+/* sidebar */
 .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 72px;
+    left: 72px;
 
-    width: 160px;
+    width: 280px;
     height: 100vh;
-
-    padding: 20px;
+    padding:0;
 
     display: flex;
     flex-direction: column;
@@ -91,40 +84,49 @@ p {
     z-index: 1;
 }
 
+.sidebar h1{
+    font-size: 24px;
+    margin: 0 0 12px;
+}
 
+.sidebar a {
+    color:white;
+    text-decoration: none;
+}
 
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/*content*/
 
 .content {
-    position: fixed;
-    top: 0;
-    left: 160px;
+    position: relative;
+    margin-left:276px;
+    padding: 72px 24px 72px 0 ;
 
-    width: 40vw;
-    height: 100vh;
-
-    padding: 24px;
-
-    overflow-y: auto;
-
+    max-width:480px;
+    display: flex;
+    flex-direction: column;
+    gap:48px;
     z-index: 1;
 }
+/*projects */
 
 .project-list{
     display: flex;
     flex-direction: column;
-    gap:32px
+    gap:24px;
 }
 
 .project{
-    display:flex;
-    gap:16px;
+    max-width:360px;
     padding:12px;
-    border:1px solid white;
+    border:1px solid wite;
 }
 .project-image{
-    width: 30%;
-    flex-shrink: 0;
-    aspect-ratio: 4 / 3;
+    width: 100%;
+    aspect-ratio: 4/3;
     overflow: hidden;
 }
 
@@ -136,30 +138,25 @@ p {
 }
 
 .project-info{
-    flex:1;
+    margin-top:12px;
 }
 
 .project-info h3{
-    margin-bottom: 4px;
+    margin: 0 0 4px;
 }
 
 .project-info p{
-    margin-top:0;
-    margin-bottom: 4px;
+    margin: 0 0 4px;
 }
 
 .project-info span{
     font-size: 10px;
 }
 
+/*responsive*/
 @media (max-width: 800px) {
     .content {
-        width: calc(100vw - 160px);
+        width: calc(100vw - 180px);
     }
 }
 
-.project-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
