@@ -50,19 +50,19 @@ async function updateWeather() {
 
         if (code === 0) {
             document.body.style.backgroundColor = '#0066ff';
-            sky.style.backgroundImage = "url('img/skychuva.png')";
+            sky.style.backgroundImage = "url('img/bluesky.png')";
             if (weatherText) weatherText.textContent = `coimbra // ${temp}°C // clear`;
         } else if (code <= 3) {
             document.body.style.backgroundColor = '#0066ff';
-            sky.style.backgroundImage = "url('img/skychuva.png')";
+            sky.style.backgroundImage = "url('img/clouds2.png')";
             if (weatherText) weatherText.textContent = `coimbra // ${temp}°C // partly cloudy`;
         } else if (code >= 51) {
             document.body.style.backgroundColor = '#003380';
-            sky.style.backgroundImage = "url('img/skychuva.png')";
+            sky.style.backgroundImage = "url('img/clouds.png')";
             if (weatherText) weatherText.textContent = `coimbra // ${temp}°C // rain`;
         } else {
             document.body.style.backgroundColor = '#1a5cc8';
-            sky.style.backgroundImage = "url('img/skychuva.png')";
+            sky.style.backgroundImage = "url('img/skyrain.png')";
             if (weatherText) weatherText.textContent = `coimbra // ${temp}°C // cloudy`;
         }
     } catch (error) {
