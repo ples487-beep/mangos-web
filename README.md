@@ -22,3 +22,7 @@ Users can switch between Home, Works, About Me, and Contact without page reloads
 
 ```bash
 git clone [https://github.com/ples487-beep/mangos-web.git](https://github.com/ples487-beep/mangos-web.git)
+```
+
+## Credits
+Miguel Ples Nº2023218317 FCTUC / MDM 26/27
