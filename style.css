@@ -1,4 +1,3 @@
-
 /* fonts */
 
 @font-face {
@@ -8,20 +7,42 @@
     font-style: normal;
 }
 
-/*base*/
+/* animações */
+
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+section,
+dialog {
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 * {
     box-sizing: border-box;
 }
 
+/* base */
+
+html {
+    overflow-y: scroll;
+}
+
 body {
     margin: 0;
-
     background-color: #0066ff;
-
+    transition: background-color 1s ease;
     font-family: Verdana, sans-serif;
     font-size: 12px;
     font-weight: normal;
@@ -31,17 +52,15 @@ body {
 
 h1 {
     margin: 0;
-
     font-family: 'Trade Gothic', sans-serif;
     font-size: 48px;
     font-weight: bold;
     line-height: 0.9;
-
     color: aliceblue;
 }
 
 h2 {
-    margin-top:0;
+    margin-top: 0;
     font-size: 18px;
     font-weight: bold;
 }
@@ -56,45 +75,63 @@ p {
     line-height: 1.6;
 }
 
+/* background e robo */
 
-
-#agua {
+#bg-sky {
     position: fixed;
     inset: 0;
-
-    width: 100%;
-    height: 100%;
-
     z-index: 0;
-    image-rendering: pixelated;
     pointer-events: none;
+    image-rendering: pixelated;
+    background-image: url('clouds.png');
+    background-repeat: repeat;
+    background-size: 512px 512px;
+    animation: drift-horizontal 25s linear infinite;
 }
 
+@keyframes drift-horizontal {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -512px 0;
+    }
+}
+
+#robo-fisher {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    width: 900px;
+    max-width: 75vw;
+    height: auto;
+    pointer-events: none;
+    image-rendering: pixelated;
+}
 
 /* sidebar */
+
 .sidebar {
     position: fixed;
     top: 72px;
     left: 72px;
-
     width: 180px;
     height: 100vh;
-    padding:0;
-
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 12px;
-
-    z-index: 1;
+    z-index: 2;
 }
 
-.sidebar h1{
+.sidebar h1 {
     font-size: 24px;
     margin: 0 0 12px;
 }
 
 .sidebar a {
-    color:white;
+    color: white;
     text-decoration: none;
 }
 
@@ -102,65 +139,68 @@ p {
     text-decoration: underline;
 }
 
-/*content*/
+/* content */
 
 .content {
     position: relative;
-    margin-left:276px;
-    padding: 72px 24px 72px 0 ;
-
-    max-width:480px;
+    margin-left: 276px;
+    padding: 72px 24px 72px 0;
+    max-width: 480px;
     display: flex;
     flex-direction: column;
-    gap:48px;
-    z-index: 1;
+    gap: 48px;
+    z-index: 2;
 }
-/*projects */
 
-.project-list{
+/* projects */
+
+.project-list {
     display: flex;
     flex-direction: column;
-    gap:24px;
+    gap: 24px;
 }
 
-.project{
-    max-width:360px;
-    padding:12px;
-    border:1px solid white;
+.project {
+    max-width: 360px;
+    padding: 12px;
+    border: 1px solid white;
     cursor: pointer;
 }
-.project-image{
+
+.project-image {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    border: 1px solid white;
 }
 
-.project-image img{
+.project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.project-info{
-    margin-top:12px;
+.project-info {
+    margin-top: 12px;
 }
 
-.project-info h3{
+.project-info h3 {
     margin: 0 0 4px;
 }
 
-.project-info p{
+.project-info p {
     margin: 0 0 4px;
 }
 
-.project-info span{
+.project-info span {
     font-size: 10px;
 }
 
 /* contact form */
+
 .contact-form {
-    max-width:360px;
+    max-width: 360px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -173,14 +213,14 @@ p {
     border: 1px solid white;
     background-color: transparent;
     color: white;
-    font-family:Verdana, sans-serif;
+    font-family: Verdana, sans-serif;
     font-size: 12px;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    background-color:rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .contact-form button {
@@ -188,20 +228,154 @@ p {
     border: 1px solid white;
     background-color: transparent;
     color: white;
-    font-family:Verdana, sans-serif;
+    font-family: Verdana, sans-serif;
     font-size: 12px;
     cursor: pointer;
 }
 
-.contact-form button:hover{
-    background-color:white;
-    color:#0066ff;
+.contact-form button:hover {
+    background-color: white;
+    color: #0066ff;
 }
 
-/*responsive*/
-@media (max-width: 800px) {
-    .content {
-        width: calc(100vw - 180px);
+/* dialog - project popup */
+
+dialog {
+    background-color: #0066ff;
+    color: white;
+    border: 1px solid white;
+    padding: 24px;
+    width: 90%;
+    max-width: 600px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 12px;
+}
+
+.close-dialog {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.close-dialog:hover {
+    background-color: white;
+    color: #0066ff;
+}
+
+.dialog-gallery {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: white transparent;
+}
+
+.dialog-gallery::-webkit-scrollbar {
+    height: 4px;
+}
+
+.dialog-gallery::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dialog-gallery::-webkit-scrollbar-thumb {
+    background: white;
+}
+
+dialog-gallery img,
+.dialog-gallery video {
+    width: 260px;
+    height: 195px;
+    object-fit: cover;
+    border: 1px solid white;
+    flex-shrink: 0;
+}
+
+.dialog-image img {
+    width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+    border: 1px solid white;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.dialog-info a {
+    color: white;
+}
+
+/* responsive */
+
+@media (max-width: 700px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid white;
+        padding: 16px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
     }
-}
 
+    .sidebar h1 {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .sidebar a {
+        margin: 0;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 16px;
+    }
+
+    #robo-fisher {
+        width: 100vw;
+        max-width: 100vw;
+    }
+
+    .project {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    dialog {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        margin: 0;
+        border: none;
+    }
+
+    .dialog-gallery img,
+.dialog-gallery video {
+    width: 260px;
+    height: 195px;
+    object-fit: cover;
+    border: 1px solid white;
+    flex-shrink: 0;
+}
+}
